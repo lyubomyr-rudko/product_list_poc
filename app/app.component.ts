@@ -18,4 +18,6 @@ export class AppComponent {
     doIt() {
         this.styleColor = 'silver';
     }
+    
+    doItMore() {}
 }

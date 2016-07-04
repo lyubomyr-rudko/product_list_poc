@@ -2,6 +2,20 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'my-app',
-    template: '<h1>My First Angular 2 App</h1>'
+    templateUrl: 'app/app.component.html'
 })
-export class AppComponent { }
+export class AppComponent { 
+    title = 'Super!!!';
+    word = 'Cool!';
+    styleColor = 'blue';
+    
+    constructor() {
+        setTimeout(()=> {
+            this.styleColor = 'red';
+        }, 1000);
+    }
+    
+    doIt() {
+        this.styleColor = 'silver';
+    }
+}

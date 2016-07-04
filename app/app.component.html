@@ -1,5 +1,7 @@
 <h1>{{title}}</h1>
 <div [style.background]='"yellow"' [style.color]='styleColor' style="background:silver;">{{word}}</div>
 <input [value]='word' (keyup.enter)="word = $event.target.value" />
-<input [value]='word' [(ngModel)]="word" />
+<input [(ngModel)]="word" />
 <button (click)='doIt()'>Btn</button>
+
+<app-customers [styleColor]="styleColor" ></app-customers>

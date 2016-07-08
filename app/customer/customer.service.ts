@@ -9,7 +9,18 @@ export class CustomerService {
   private _customersUrl = '/app/customers.json';
   constructor(private _http:Http){}
   
-  getCustomers():Observable<any[]> {
+  getCustomers() {
+    return this._http.get(this._customersUrl)
+      .map((res:Response) => res.json())
+      .toPromise() 
+      .catch( err => {
+        console.log(err);
+ 
+        return Promise.reject(err);
+      });
+  }
+  
+  getCustomers_observable():Observable<any[]> {
     return this._http.get(this._customersUrl)
       .map((res:Response) => res.json())
       .catch(this._onError);

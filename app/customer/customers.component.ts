@@ -13,12 +13,21 @@ import { Observable } from 'rxjs/Observable';
 export class CustomersComponent implements OnInit {
   @Input() styleColor:string;
   
-  customers: Observable<any[]>;
+  customers_observable: Observable<any[]>;
+  customers: Promise<any[]>;
   
   constructor(private _customerService:CustomerService) { }
  
   ngOnInit() {
-    this.customers = this._customerService.getCustomers()//.subscribe((value)=> this.customers = value);
+    this.getCustomers();
+  }
+  
+  getCustomers() {
+    this.customers = this._customerService.getCustomers();
+  }
+  
+  getCustomers_observable() {
+    this.customers_observable = this._customerService.getCustomers_observable()//.subscribe((value)=> this.customers = value);
       .catch(err => {
         console.log(err);
         return Observable.of({} as any);

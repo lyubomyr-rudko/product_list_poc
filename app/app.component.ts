@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { CustomersComponent } from './customer/customers.component';
+import { CustomerService } from './customer/customer.service';
 
 @Component({
+    moduleId: module.id,
     selector: 'my-app',
-    templateUrl: 'app/app.component.html',
-    directives: [CustomersComponent]
+    templateUrl: 'app.component.html',
+    directives: [CustomersComponent],
+    providers: [ CustomerService ]
 })
 export class AppComponent { 
-    title = 'Super!!!';
+    title = 'Super!';
     word = 'Cool!';
     styleColor = 'yellow';
     
